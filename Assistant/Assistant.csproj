@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Config\" />
+    <Folder Include="Features\" />
+    <Folder Include="Features\Weather\" />
+    <Folder Include="Features\Weather\Models\" />
+    <Folder Include="Features\Weather\Services\" />
+    <Folder Include="Features\ReadableDateTime\" />
+    <Folder Include="Features\ReadableDateTime\Models\" />
+    <Folder Include="Features\ReadableDateTime\Services\" />
+    <Folder Include="Features\Greeting\" />
+    <Folder Include="Features\Greeting\Services\" />
+    <Folder Include="Features\Greeting\Models\" />
+    <Folder Include="Features\Age\" />
+    <Folder Include="Features\News\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="2.2.5" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="2.2.0" />
+    <PackageReference Include="Jmwoo.Core" Version="1.0.0" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  web:
+    image: web
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    ports:
+      - 5010:80
+    environment:
+      - REDIS=redis:6379
+    depends_on:
+      - redis
+  redis:
+    image: redis:alpine
