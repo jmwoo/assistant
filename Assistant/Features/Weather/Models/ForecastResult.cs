@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Jmwoo.Core.Date;
+using Jmwoo.Common.Date;
 using Assistant.Features.ReadableDateTime.Models;
 using Newtonsoft.Json;
 

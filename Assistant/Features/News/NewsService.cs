@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Jmwoo.Core.Http;
+using Jmwoo.Common.Http;
 using Microsoft.Extensions.Configuration;
 
 namespace Assistant.Features.News

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Jmwoo.Core.Http;
+using Jmwoo.Common.Http;
 
 namespace Assistant.Features.Surf
 {

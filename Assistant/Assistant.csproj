@@ -23,11 +23,11 @@
     <Folder Include="Features\News\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Jmwoo.Common" Version="1.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="2.2.5" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="2.2.0" />
-    <PackageReference Include="Jmwoo.Core" Version="1.0.0" />
   </ItemGroup>
 </Project>

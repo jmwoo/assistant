@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Jmwoo.Core.Date;
+using Jmwoo.Common.Date;
 using Assistant.Features.Greeting.Models;
 using Assistant.Features.News;
 using Assistant.Features.ReadableDateTime.Services;

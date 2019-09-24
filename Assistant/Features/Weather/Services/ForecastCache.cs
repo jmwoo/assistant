@@ -1,5 +1,5 @@
 ﻿using System;
-using Jmwoo.Core.Caching;
+using Jmwoo.Common.Caching;
 using Assistant.Features.Weather.Models;
 using Microsoft.Extensions.Caching.Distributed;
 

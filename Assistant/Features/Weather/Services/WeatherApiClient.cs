@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Jmwoo.Core.Http;
+using Jmwoo.Common.Http;
 using Assistant.Features.Weather.Models;
 using Microsoft.Extensions.Configuration;
 
