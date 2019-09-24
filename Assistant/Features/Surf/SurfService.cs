@@ -44,7 +44,7 @@ namespace Assistant.Features.Surf
 
         public async Task<List<SurfMoment>> GetSurfForecastFromApi(SurfSpot surfSpot)
         {
-            var url = HttpHelpers.BuildUrl("www-2019-2133843493.us-east-1.elb.amazonaws.com", $"/api/spot/forecast/{surfSpot.Value}", useHttps: false);
+            var url = HttpHelpers.BuildUrl("www-2019-2133843493.us-east-1.elb.amazonaws.com", $"/api/spot/forecast/{Convert.ToInt32(surfSpot)}", useHttps: false);
             var result = await _httpClientFactory.CreateClient().SendAndReceiveAs<List<SurfMoment>>(HttpMethod.Get, url);
             return result;
         }

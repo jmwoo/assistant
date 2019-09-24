@@ -38,12 +38,12 @@ namespace Assistant.Features.Greeting.Services
             var readableNow = _readableDateTimeService.Get(now);
 
             var msgTasks = new[] {
-                req.OpeningMsg ? Task.FromResult($"Good {readableNow.PartOfDay} {req.Name}".Trim() + "!") : DefaultMsg(),
-                req.CurrentDate ? Task.FromResult($"It's {readableNow.DayOfWeek} {readableNow.Month} {readableNow.DayOfMonthEnglish} {readableNow.Time}.") : DefaultMsg(),
+                req.Greeting ? Task.FromResult($"Good {readableNow.PartOfDay} {req.Name}".Trim() + "!") : DefaultMsg(),
+                req.Date ? Task.FromResult($"It's {readableNow.DayOfWeek} {readableNow.Month} {readableNow.DayOfMonthEnglish} {readableNow.Time}.") : DefaultMsg(),
                 req.Weather ? _weatherService.GetWeatherMessage(req.Zip) : DefaultMsg(),
-                req.CurrentSurf ? _surfService.GetCurrentSurfMessage(SurfSpot.BlacksBeach) : DefaultMsg(),
-                req.WaterTemp ? _surfService.GetCurrentOceanTemperatureMessage(SurfCounty.SanDiego) : DefaultMsg(),
-                req.NewsHeadlines ? _newsService.GetHeadlinesMessage() : DefaultMsg()
+                req.Surf.HasValue ? _surfService.GetCurrentSurfMessage(req.Surf.Value) : DefaultMsg(),
+                req.Water ? _surfService.GetCurrentOceanTemperatureMessage(SurfCounty.SanDiego) : DefaultMsg(),
+                req.News ? _newsService.GetHeadlinesMessage() : DefaultMsg()
             };
 
             await Task.WhenAll(msgTasks);
