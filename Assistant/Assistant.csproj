@@ -4,9 +4,10 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Class1.cs" />
-  </ItemGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <VersionSuffix>D$([System.DateTime]::UtcNow.ToString(yyyyMMddHHmm))</VersionSuffix>
+  </PropertyGroup>
+  
   <ItemGroup>
     <Folder Include="Config\" />
     <Folder Include="Features\" />

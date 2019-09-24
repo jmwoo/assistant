@@ -13,7 +13,7 @@ namespace Assistant.Features.Greeting.Services
 {
     public interface IGreetingService
     {
-        Task<GetGreetingResult> GetGreeting(IGetGreetingRequest req);
+        Task<GreetingResult> GetGreeting(IGreetingRequest req);
     }
 
     public class GreetingService : IGreetingService
@@ -32,13 +32,13 @@ namespace Assistant.Features.Greeting.Services
             _readableDateTimeService = readableDateTimeService;
             _newsService = newsService;
         }
-        public async Task<GetGreetingResult> GetGreeting(IGetGreetingRequest req)
+        public async Task<GreetingResult> GetGreeting(IGreetingRequest req)
         {
             var now = DateTime.UtcNow.UtcToPst();
             var readableNow = _readableDateTimeService.Get(now);
 
             var msgTasks = new[] {
-                req.OpeningMsg ? Task.FromResult($"Good {readableNow.PartOfDay} {req.Name}! ") : DefaultMsg(),
+                req.OpeningMsg ? Task.FromResult($"Good {readableNow.PartOfDay} {req.Name}".Trim() + "!") : DefaultMsg(),
                 req.CurrentDate ? Task.FromResult($"It's {readableNow.DayOfWeek} {readableNow.Month} {readableNow.DayOfMonthEnglish} {readableNow.Time}.") : DefaultMsg(),
                 req.Weather ? _weatherService.GetWeatherMessage(req.Zip) : DefaultMsg(),
                 req.CurrentSurf ? _surfService.GetCurrentSurfMessage(SurfSpot.BlacksBeach) : DefaultMsg(),
@@ -50,7 +50,7 @@ namespace Assistant.Features.Greeting.Services
 
             var msg = string.Join(" ", msgTasks.Select(t => t.Result));
 
-            return new GetGreetingResult
+            return new GreetingResult
             {
                 Message = msg.Trim()
             };

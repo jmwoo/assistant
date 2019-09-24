@@ -22,26 +22,15 @@ namespace web.Controllers
 
         [HttpGet]
         [Route("")]
-        public async Task<IActionResult> GetIndex()
+        public async Task<IActionResult> GetIndex([FromQuery] GreetingRequest req)
         {
-            var greeting = await _greetingService.GetGreeting(new GetGreetingRequest
-            {
-                Zip = "92117",
-                Name = "Jimmy",
-                OpeningMsg = true,
-                CurrentDate = true,
-                Weather = true,
-                CurrentSurf = true,
-                WaterTemp = true,
-                NewsHeadlines = true
-            });
-
+            var greeting = await _greetingService.GetGreeting(req);
             return Content(greeting.Message);
         }
 
         [HttpPost]
         [Route("")]
-        public async Task<IActionResult> PostIndex([FromBody] GetGreetingRequest req)
+        public async Task<IActionResult> PostIndex([FromBody] GreetingRequest req)
         {
             var greeting = await _greetingService.GetGreeting(req);
 
